@@ -1,0 +1,753 @@
+{
+  "name": "clio",
+  "children": {
+    "statement": [
+      {
+        "name": "statement",
+        "children": {
+          "flow": [
+            {
+              "name": "flow",
+              "children": {
+                "arithmatic": [
+                  {
+                    "name": "arithmatic",
+                    "children": {
+                      "lhs": [
+                        {
+                          "name": "higherMath",
+                          "children": {
+                            "lhs": [
+                              {
+                                "name": "power",
+                                "children": {
+                                  "lhs": [
+                                    {
+                                      "name": "value",
+                                      "children": {
+                                        "list": [
+                                          {
+                                            "name": "list",
+                                            "children": {
+                                              "LBracket": [
+                                                {
+                                                  "image": "[",
+                                                  "startOffset": 1,
+                                                  "endOffset": 1,
+                                                  "startLine": 2,
+                                                  "endLine": 2,
+                                                  "startColumn": 1,
+                                                  "endColumn": 1,
+                                                  "tokenTypeIdx": 41,
+                                                  "tokenType": {
+                                                    "PATTERN": {},
+                                                    "tokenTypeIdx": 41,
+                                                    "CATEGORIES": [],
+                                                    "categoryMatches": [],
+                                                    "categoryMatchesMap": {},
+                                                    "tokenName": "LBracket",
+                                                    "isParent": false
+                                                  }
+                                                }
+                                              ],
+                                              "value": [
+                                                {
+                                                  "name": "value",
+                                                  "children": {
+                                                    "primitive": [
+                                                      {
+                                                        "name": "primitive",
+                                                        "children": {
+                                                          "Number": [
+                                                            {
+                                                              "image": "1",
+                                                              "startOffset": 2,
+                                                              "endOffset": 2,
+                                                              "startLine": 2,
+                                                              "endLine": 2,
+                                                              "startColumn": 2,
+                                                              "endColumn": 2,
+                                                              "tokenTypeIdx": 14,
+                                                              "tokenType": {
+                                                                "PATTERN": {},
+                                                                "tokenTypeIdx": 14,
+                                                                "CATEGORIES": [],
+                                                                "categoryMatches": [],
+                                                                "categoryMatchesMap": {},
+                                                                "tokenName": "Number",
+                                                                "isParent": false
+                                                              }
+                                                            }
+                                                          ]
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                },
+                                                {
+                                                  "name": "value",
+                                                  "children": {
+                                                    "primitive": [
+                                                      {
+                                                        "name": "primitive",
+                                                        "children": {
+                                                          "Number": [
+                                                            {
+                                                              "image": "2",
+                                                              "startOffset": 4,
+                                                              "endOffset": 4,
+                                                              "startLine": 2,
+                                                              "endLine": 2,
+                                                              "startColumn": 4,
+                                                              "endColumn": 4,
+                                                              "tokenTypeIdx": 14,
+                                                              "tokenType": {
+                                                                "PATTERN": {},
+                                                                "tokenTypeIdx": 14,
+                                                                "CATEGORIES": [],
+                                                                "categoryMatches": [],
+                                                                "categoryMatchesMap": {},
+                                                                "tokenName": "Number",
+                                                                "isParent": false
+                                                              }
+                                                            }
+                                                          ]
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                },
+                                                {
+                                                  "name": "value",
+                                                  "children": {
+                                                    "primitive": [
+                                                      {
+                                                        "name": "primitive",
+                                                        "children": {
+                                                          "Number": [
+                                                            {
+                                                              "image": "3",
+                                                              "startOffset": 6,
+                                                              "endOffset": 6,
+                                                              "startLine": 2,
+                                                              "endLine": 2,
+                                                              "startColumn": 6,
+                                                              "endColumn": 6,
+                                                              "tokenTypeIdx": 14,
+                                                              "tokenType": {
+                                                                "PATTERN": {},
+                                                                "tokenTypeIdx": 14,
+                                                                "CATEGORIES": [],
+                                                                "categoryMatches": [],
+                                                                "categoryMatchesMap": {},
+                                                                "tokenName": "Number",
+                                                                "isParent": false
+                                                              }
+                                                            }
+                                                          ]
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ],
+                                              "RBracket": [
+                                                {
+                                                  "image": "]",
+                                                  "startOffset": 7,
+                                                  "endOffset": 7,
+                                                  "startLine": 2,
+                                                  "endLine": 2,
+                                                  "startColumn": 7,
+                                                  "endColumn": 7,
+                                                  "tokenTypeIdx": 42,
+                                                  "tokenType": {
+                                                    "PATTERN": {},
+                                                    "tokenTypeIdx": 42,
+                                                    "CATEGORIES": [],
+                                                    "categoryMatches": [],
+                                                    "categoryMatchesMap": {},
+                                                    "tokenName": "RBracket",
+                                                    "isParent": false
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "functionMap": [
+                  {
+                    "name": "functionMap",
+                    "children": {
+                      "Pipe": [
+                        {
+                          "image": "->",
+                          "startOffset": 9,
+                          "endOffset": 10,
+                          "startLine": 2,
+                          "endLine": 2,
+                          "startColumn": 9,
+                          "endColumn": 10,
+                          "tokenTypeIdx": 31,
+                          "tokenType": {
+                            "PATTERN": {},
+                            "tokenTypeIdx": 31,
+                            "CATEGORIES": [],
+                            "categoryMatches": [],
+                            "categoryMatchesMap": {},
+                            "tokenName": "Pipe",
+                            "isParent": false
+                          }
+                        }
+                      ],
+                      "Multiply": [
+                        {
+                          "image": "*",
+                          "startOffset": 12,
+                          "endOffset": 12,
+                          "startLine": 2,
+                          "endLine": 2,
+                          "startColumn": 12,
+                          "endColumn": 12,
+                          "tokenTypeIdx": 36,
+                          "tokenType": {
+                            "PATTERN": {},
+                            "tokenTypeIdx": 36,
+                            "CATEGORIES": [],
+                            "categoryMatches": [],
+                            "categoryMatchesMap": {},
+                            "tokenName": "Multiply",
+                            "isParent": false
+                          }
+                        }
+                      ],
+                      "Symbol": [
+                        {
+                          "image": "mul",
+                          "startOffset": 14,
+                          "endOffset": 16,
+                          "startLine": 2,
+                          "endLine": 2,
+                          "startColumn": 14,
+                          "endColumn": 16,
+                          "tokenTypeIdx": 30,
+                          "tokenType": {
+                            "PATTERN": {},
+                            "tokenTypeIdx": 30,
+                            "CATEGORIES": [],
+                            "categoryMatches": [],
+                            "categoryMatchesMap": {},
+                            "tokenName": "Symbol",
+                            "isParent": false
+                          }
+                        }
+                      ],
+                      "arithmatic": [
+                        {
+                          "name": "arithmatic",
+                          "children": {
+                            "lhs": [
+                              {
+                                "name": "higherMath",
+                                "children": {
+                                  "lhs": [
+                                    {
+                                      "name": "power",
+                                      "children": {
+                                        "lhs": [
+                                          {
+                                            "name": "value",
+                                            "children": {
+                                              "primitive": [
+                                                {
+                                                  "name": "primitive",
+                                                  "children": {
+                                                    "Number": [
+                                                      {
+                                                        "image": "3",
+                                                        "startOffset": 18,
+                                                        "endOffset": 18,
+                                                        "startLine": 2,
+                                                        "endLine": 2,
+                                                        "startColumn": 18,
+                                                        "endColumn": 18,
+                                                        "tokenTypeIdx": 14,
+                                                        "tokenType": {
+                                                          "PATTERN": {},
+                                                          "tokenTypeIdx": 14,
+                                                          "CATEGORIES": [],
+                                                          "categoryMatches": [],
+                                                          "categoryMatchesMap": {},
+                                                          "tokenName": "Number",
+                                                          "isParent": false
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "Indent": [
+                  {
+                    "image": "        ",
+                    "startOffset": 20,
+                    "endOffset": 27,
+                    "startLine": 3,
+                    "endLine": 3,
+                    "startColumn": 1,
+                    "endColumn": 8,
+                    "tokenTypeIdx": 10,
+                    "tokenType": {
+                      "tokenTypeIdx": 10,
+                      "CATEGORIES": [],
+                      "categoryMatches": [],
+                      "categoryMatchesMap": {},
+                      "tokenName": "Indent",
+                      "isParent": false,
+                      "LINE_BREAKS": false
+                    }
+                  }
+                ],
+                "functionCall": [
+                  {
+                    "name": "functionCall",
+                    "children": {
+                      "Pipe": [
+                        {
+                          "image": "->",
+                          "startOffset": 28,
+                          "endOffset": 29,
+                          "startLine": 3,
+                          "endLine": 3,
+                          "startColumn": 9,
+                          "endColumn": 10,
+                          "tokenTypeIdx": 31,
+                          "tokenType": {
+                            "PATTERN": {},
+                            "tokenTypeIdx": 31,
+                            "CATEGORIES": [],
+                            "categoryMatches": [],
+                            "categoryMatchesMap": {},
+                            "tokenName": "Pipe",
+                            "isParent": false
+                          }
+                        }
+                      ],
+                      "Symbol": [
+                        {
+                          "image": "print",
+                          "startOffset": 31,
+                          "endOffset": 35,
+                          "startLine": 3,
+                          "endLine": 3,
+                          "startColumn": 12,
+                          "endColumn": 16,
+                          "tokenTypeIdx": 30,
+                          "tokenType": {
+                            "PATTERN": {},
+                            "tokenTypeIdx": 30,
+                            "CATEGORIES": [],
+                            "categoryMatches": [],
+                            "categoryMatchesMap": {},
+                            "tokenName": "Symbol",
+                            "isParent": false
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "name": "functionCall",
+                    "children": {
+                      "Pipe": [
+                        {
+                          "image": "->",
+                          "startOffset": 53,
+                          "endOffset": 54,
+                          "startLine": 4,
+                          "endLine": 4,
+                          "startColumn": 9,
+                          "endColumn": 10,
+                          "tokenTypeIdx": 31,
+                          "tokenType": {
+                            "PATTERN": {},
+                            "tokenTypeIdx": 31,
+                            "CATEGORIES": [],
+                            "categoryMatches": [],
+                            "categoryMatchesMap": {},
+                            "tokenName": "Pipe",
+                            "isParent": false
+                          }
+                        }
+                      ],
+                      "functionDefinition": [
+                        {
+                          "name": "functionDefinition",
+                          "children": {
+                            "Fn": [
+                              {
+                                "image": "fn",
+                                "startOffset": 56,
+                                "endOffset": 57,
+                                "startLine": 4,
+                                "endLine": 4,
+                                "startColumn": 12,
+                                "endColumn": 13,
+                                "tokenTypeIdx": 15,
+                                "tokenType": {
+                                  "PATTERN": {},
+                                  "tokenTypeIdx": 15,
+                                  "CATEGORIES": [],
+                                  "categoryMatches": [],
+                                  "categoryMatchesMap": {},
+                                  "tokenName": "Fn",
+                                  "isParent": false
+                                }
+                              }
+                            ],
+                            "Symbol": [
+                              {
+                                "image": "name",
+                                "startOffset": 59,
+                                "endOffset": 62,
+                                "startLine": 4,
+                                "endLine": 4,
+                                "startColumn": 15,
+                                "endColumn": 18,
+                                "tokenTypeIdx": 30,
+                                "tokenType": {
+                                  "PATTERN": {},
+                                  "tokenTypeIdx": 30,
+                                  "CATEGORIES": [],
+                                  "categoryMatches": [],
+                                  "categoryMatchesMap": {},
+                                  "tokenName": "Symbol",
+                                  "isParent": false
+                                }
+                              },
+                              {
+                                "image": "n",
+                                "startOffset": 64,
+                                "endOffset": 64,
+                                "startLine": 4,
+                                "endLine": 4,
+                                "startColumn": 20,
+                                "endColumn": 20,
+                                "tokenTypeIdx": 30,
+                                "tokenType": {
+                                  "PATTERN": {},
+                                  "tokenTypeIdx": 30,
+                                  "CATEGORIES": [],
+                                  "categoryMatches": [],
+                                  "categoryMatchesMap": {},
+                                  "tokenName": "Symbol",
+                                  "isParent": false
+                                }
+                              }
+                            ],
+                            "Colon": [
+                              {
+                                "image": ":",
+                                "startOffset": 65,
+                                "endOffset": 65,
+                                "startLine": 4,
+                                "endLine": 4,
+                                "startColumn": 21,
+                                "endColumn": 21,
+                                "tokenTypeIdx": 5,
+                                "tokenType": {
+                                  "PATTERN": {},
+                                  "tokenTypeIdx": 5,
+                                  "CATEGORIES": [],
+                                  "categoryMatches": [],
+                                  "categoryMatchesMap": {},
+                                  "tokenName": "Colon",
+                                  "isParent": false
+                                }
+                              }
+                            ],
+                            "block": [
+                              {
+                                "name": "block",
+                                "children": {
+                                  "Indent": [
+                                    {
+                                      "image": "             ",
+                                      "startOffset": 67,
+                                      "endOffset": 79,
+                                      "startLine": 5,
+                                      "endLine": 5,
+                                      "startColumn": 1,
+                                      "endColumn": 13,
+                                      "tokenTypeIdx": 10,
+                                      "tokenType": {
+                                        "tokenTypeIdx": 10,
+                                        "CATEGORIES": [],
+                                        "categoryMatches": [],
+                                        "categoryMatchesMap": {},
+                                        "tokenName": "Indent",
+                                        "isParent": false,
+                                        "LINE_BREAKS": false
+                                      }
+                                    }
+                                  ],
+                                  "statement": [
+                                    {
+                                      "name": "statement",
+                                      "children": {
+                                        "flow": [
+                                          {
+                                            "name": "flow",
+                                            "children": {
+                                              "arithmatic": [
+                                                {
+                                                  "name": "arithmatic",
+                                                  "children": {
+                                                    "lhs": [
+                                                      {
+                                                        "name": "higherMath",
+                                                        "children": {
+                                                          "lhs": [
+                                                            {
+                                                              "name": "power",
+                                                              "children": {
+                                                                "lhs": [
+                                                                  {
+                                                                    "name": "value",
+                                                                    "children": {
+                                                                      "primitive": [
+                                                                        {
+                                                                          "name": "primitive",
+                                                                          "children": {
+                                                                            "Symbol": [
+                                                                              {
+                                                                                "image": "n",
+                                                                                "startOffset": 80,
+                                                                                "endOffset": 80,
+                                                                                "startLine": 5,
+                                                                                "endLine": 5,
+                                                                                "startColumn": 14,
+                                                                                "endColumn": 14,
+                                                                                "tokenTypeIdx": 30,
+                                                                                "tokenType": {
+                                                                                  "PATTERN": {},
+                                                                                  "tokenTypeIdx": 30,
+                                                                                  "CATEGORIES": [],
+                                                                                  "categoryMatches": [],
+                                                                                  "categoryMatchesMap": {},
+                                                                                  "tokenName": "Symbol",
+                                                                                  "isParent": false
+                                                                                }
+                                                                              }
+                                                                            ]
+                                                                          }
+                                                                        }
+                                                                      ]
+                                                                    }
+                                                                  }
+                                                                ],
+                                                                "Power": [
+                                                                  {
+                                                                    "image": "**",
+                                                                    "startOffset": 82,
+                                                                    "endOffset": 83,
+                                                                    "startLine": 5,
+                                                                    "endLine": 5,
+                                                                    "startColumn": 16,
+                                                                    "endColumn": 17,
+                                                                    "tokenTypeIdx": 35,
+                                                                    "tokenType": {
+                                                                      "PATTERN": {},
+                                                                      "tokenTypeIdx": 35,
+                                                                      "CATEGORIES": [],
+                                                                      "categoryMatches": [],
+                                                                      "categoryMatchesMap": {},
+                                                                      "tokenName": "Power",
+                                                                      "isParent": false
+                                                                    }
+                                                                  }
+                                                                ],
+                                                                "rhs": [
+                                                                  {
+                                                                    "name": "value",
+                                                                    "children": {
+                                                                      "primitive": [
+                                                                        {
+                                                                          "name": "primitive",
+                                                                          "children": {
+                                                                            "Number": [
+                                                                              {
+                                                                                "image": "4",
+                                                                                "startOffset": 85,
+                                                                                "endOffset": 85,
+                                                                                "startLine": 5,
+                                                                                "endLine": 5,
+                                                                                "startColumn": 19,
+                                                                                "endColumn": 19,
+                                                                                "tokenTypeIdx": 14,
+                                                                                "tokenType": {
+                                                                                  "PATTERN": {},
+                                                                                  "tokenTypeIdx": 14,
+                                                                                  "CATEGORIES": [],
+                                                                                  "categoryMatches": [],
+                                                                                  "categoryMatchesMap": {},
+                                                                                  "tokenName": "Number",
+                                                                                  "isParent": false
+                                                                                }
+                                                                              }
+                                                                            ]
+                                                                          }
+                                                                        }
+                                                                      ]
+                                                                    }
+                                                                  }
+                                                                ]
+                                                              }
+                                                            }
+                                                          ]
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ],
+                                  "Outdent": [
+                                    {
+                                      "image": "",
+                                      "startOffset": null,
+                                      "endOffset": null,
+                                      "startLine": null,
+                                      "endLine": null,
+                                      "startColumn": null,
+                                      "endColumn": null,
+                                      "tokenTypeIdx": 11,
+                                      "tokenType": {
+                                        "tokenTypeIdx": 11,
+                                        "CATEGORIES": [],
+                                        "categoryMatches": [],
+                                        "categoryMatchesMap": {},
+                                        "tokenName": "Outdent",
+                                        "isParent": false,
+                                        "LINE_BREAKS": false
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "setValue": [
+                  {
+                    "name": "setValue",
+                    "children": {
+                      "EPipe": [
+                        {
+                          "image": "=>",
+                          "startOffset": 37,
+                          "endOffset": 38,
+                          "startLine": 3,
+                          "endLine": 3,
+                          "startColumn": 18,
+                          "endColumn": 19,
+                          "tokenTypeIdx": 32,
+                          "tokenType": {
+                            "PATTERN": {},
+                            "tokenTypeIdx": 32,
+                            "CATEGORIES": [],
+                            "categoryMatches": [],
+                            "categoryMatchesMap": {},
+                            "tokenName": "EPipe",
+                            "isParent": false
+                          }
+                        }
+                      ],
+                      "Symbol": [
+                        {
+                          "image": "list",
+                          "startOffset": 40,
+                          "endOffset": 43,
+                          "startLine": 3,
+                          "endLine": 3,
+                          "startColumn": 21,
+                          "endColumn": 24,
+                          "tokenTypeIdx": 30,
+                          "tokenType": {
+                            "PATTERN": {},
+                            "tokenTypeIdx": 30,
+                            "CATEGORIES": [],
+                            "categoryMatches": [],
+                            "categoryMatchesMap": {},
+                            "tokenName": "Symbol",
+                            "isParent": false
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "Outdent": [
+                  {
+                    "image": "",
+                    "startOffset": null,
+                    "endOffset": null,
+                    "startLine": null,
+                    "endLine": null,
+                    "startColumn": null,
+                    "endColumn": null,
+                    "tokenTypeIdx": 11,
+                    "tokenType": {
+                      "tokenTypeIdx": 11,
+                      "CATEGORIES": [],
+                      "categoryMatches": [],
+                      "categoryMatchesMap": {},
+                      "tokenName": "Outdent",
+                      "isParent": false,
+                      "LINE_BREAKS": false
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

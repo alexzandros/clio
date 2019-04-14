@@ -1,0 +1,1039 @@
+
+<!-- This is a generated file -->
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+  body {
+    background-color: hsl(30, 20%, 95%)
+  }
+</style>
+
+
+<link rel='stylesheet' href='https://unpkg.com/chevrotain@4.3.0/diagrams/diagrams.css'>
+
+<script src='https://unpkg.com/chevrotain@4.3.0/diagrams/vendor/railroad-diagrams.js'></script>
+<script src='https://unpkg.com/chevrotain@4.3.0/diagrams/src/diagrams_builder.js'></script>
+<script src='https://unpkg.com/chevrotain@4.3.0/diagrams/src/diagrams_behavior.js'></script>
+<script src='https://unpkg.com/chevrotain@4.3.0/diagrams/src/main.js'></script>
+
+<div id="diagrams" align="center"></div>    
+
+<script>
+    window.serializedGrammar = [
+  {
+    "type": "Rule",
+    "name": "clio",
+    "orgText": "() => {\n            $.MANY(() => {\n                $.OR([\n                    { ALT: () => { $.SUBRULE($.statement) } },\n                ])\n            })\n        }",
+    "definition": [
+      {
+        "type": "Repetition",
+        "idx": 0,
+        "definition": [
+          {
+            "type": "Alternation",
+            "idx": 0,
+            "definition": [
+              {
+                "type": "Flat",
+                "definition": [
+                  {
+                    "type": "NonTerminal",
+                    "name": "statement",
+                    "idx": 0
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "Rule",
+    "name": "primitive",
+    "orgText": "() => {\n            $.OR([\n                { ALT: () => { $.CONSUME(tokens.Number) } },\n                { ALT: () => { $.CONSUME(tokens.Word) } },\n                { ALT: () => { $.CONSUME(tokens.String) } },\n                { ALT: () => { $.CONSUME(tokens.Bool) } },\n                { ALT: () => { $.CONSUME(tokens.Symbol) } },\n            ])\n        }",
+    "definition": [
+      {
+        "type": "Alternation",
+        "idx": 0,
+        "definition": [
+          {
+            "type": "Flat",
+            "definition": [
+              {
+                "type": "Terminal",
+                "name": "Number",
+                "label": "Number",
+                "idx": 0,
+                "pattern": "(0|-?[1-9][0-9']*)(n|(\\.[0-9']+))?"
+              }
+            ]
+          },
+          {
+            "type": "Flat",
+            "definition": [
+              {
+                "type": "Terminal",
+                "name": "Word",
+                "label": "Word",
+                "idx": 0,
+                "pattern": "#[^\\[\\] \\r\\n:]+"
+              }
+            ]
+          },
+          {
+            "type": "Flat",
+            "definition": [
+              {
+                "type": "Terminal",
+                "name": "String",
+                "label": "String",
+                "idx": 0,
+                "pattern": "'([^\\\\]|\\\\.)*?'|\"([^\\\\]|\\\\.)*?\""
+              }
+            ]
+          },
+          {
+            "type": "Flat",
+            "definition": [
+              {
+                "type": "Terminal",
+                "name": "Bool",
+                "label": "Bool",
+                "idx": 0,
+                "pattern": "true|false"
+              }
+            ]
+          },
+          {
+            "type": "Flat",
+            "definition": [
+              {
+                "type": "Terminal",
+                "name": "Symbol",
+                "label": "Symbol",
+                "idx": 0,
+                "pattern": "[a-z$_][a-z_0-9$-]*"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "Rule",
+    "name": "value",
+    "orgText": "() => {\n            $.OR([\n                { ALT: () => { $.SUBRULE($.primitive) } },\n                { ALT: () => { $.SUBRULE($.wrappedStatement) } },\n                { ALT: () => { $.SUBRULE($.list) } },\n            ])\n        }",
+    "definition": [
+      {
+        "type": "Alternation",
+        "idx": 0,
+        "definition": [
+          {
+            "type": "Flat",
+            "definition": [
+              {
+                "type": "NonTerminal",
+                "name": "primitive",
+                "idx": 0
+              }
+            ]
+          },
+          {
+            "type": "Flat",
+            "definition": [
+              {
+                "type": "NonTerminal",
+                "name": "wrappedStatement",
+                "idx": 0
+              }
+            ]
+          },
+          {
+            "type": "Flat",
+            "definition": [
+              {
+                "type": "NonTerminal",
+                "name": "list",
+                "idx": 0
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "Rule",
+    "name": "list",
+    "orgText": "() => {\n            $.CONSUME(tokens.LBracket)\n            $.MANY(() => {\n                $.SUBRULE($.value)\n            })\n            $.CONSUME(tokens.RBracket)\n        }",
+    "definition": [
+      {
+        "type": "Terminal",
+        "name": "LBracket",
+        "label": "LBracket",
+        "idx": 0,
+        "pattern": "\\["
+      },
+      {
+        "type": "Repetition",
+        "idx": 0,
+        "definition": [
+          {
+            "type": "NonTerminal",
+            "name": "value",
+            "idx": 0
+          }
+        ]
+      },
+      {
+        "type": "Terminal",
+        "name": "RBracket",
+        "label": "RBracket",
+        "idx": 0,
+        "pattern": "\\]"
+      }
+    ]
+  },
+  {
+    "type": "Rule",
+    "name": "wrappedStatement",
+    "orgText": "() => {\n            $.CONSUME(tokens.LParen)\n            $.SUBRULE($.statement)\n            $.CONSUME(tokens.RParen)\n        }",
+    "definition": [
+      {
+        "type": "Terminal",
+        "name": "LParen",
+        "label": "LParen",
+        "idx": 0,
+        "pattern": "\\("
+      },
+      {
+        "type": "NonTerminal",
+        "name": "statement",
+        "idx": 0
+      },
+      {
+        "type": "Terminal",
+        "name": "RParen",
+        "label": "RParen",
+        "idx": 0,
+        "pattern": "\\)"
+      }
+    ]
+  },
+  {
+    "type": "Rule",
+    "name": "statement",
+    "orgText": "() => {\n            $.OR([\n                { ALT: () => { $.SUBRULE($.flow) } },\n                { ALT: () => { $.SUBRULE($.conditional) } },\n            ])\n        }",
+    "definition": [
+      {
+        "type": "Alternation",
+        "idx": 0,
+        "definition": [
+          {
+            "type": "Flat",
+            "definition": [
+              {
+                "type": "NonTerminal",
+                "name": "flow",
+                "idx": 0
+              }
+            ]
+          },
+          {
+            "type": "Flat",
+            "definition": [
+              {
+                "type": "NonTerminal",
+                "name": "conditional",
+                "idx": 0
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "Rule",
+    "name": "arithmatic",
+    "orgText": "() => {\n            $.SUBRULE($.higherMath, { LABEL: \"lhs\" })\n            $.MANY(() => {\n                $.CONSUME(tokens.BasicMath)\n                $.SUBRULE1($.higherMath, { LABEL: \"rhs\" })\n            })\n        }",
+    "definition": [
+      {
+        "type": "NonTerminal",
+        "name": "higherMath",
+        "idx": 0
+      },
+      {
+        "type": "Repetition",
+        "idx": 0,
+        "definition": [
+          {
+            "type": "Terminal",
+            "name": "BasicMath",
+            "label": "BasicMath",
+            "idx": 0,
+            "pattern": "[-+]"
+          },
+          {
+            "type": "NonTerminal",
+            "name": "higherMath",
+            "idx": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "Rule",
+    "name": "higherMath",
+    "orgText": "() => {\n            $.SUBRULE($.power, { LABEL: \"lhs\" })\n            $.MANY(() => {\n                $.OR([\n                    { ALT: () => { $.CONSUME(tokens.Multiply) } },\n                    { ALT: () => { $.CONSUME(tokens.Modulo) } },\n                    { ALT: () => { $.CONSUME(tokens.Divide) } },\n                ])\n                $.SUBRULE1($.power, { LABEL: \"rhs\" })\n            })\n        }",
+    "definition": [
+      {
+        "type": "NonTerminal",
+        "name": "power",
+        "idx": 0
+      },
+      {
+        "type": "Repetition",
+        "idx": 0,
+        "definition": [
+          {
+            "type": "Alternation",
+            "idx": 0,
+            "definition": [
+              {
+                "type": "Flat",
+                "definition": [
+                  {
+                    "type": "Terminal",
+                    "name": "Multiply",
+                    "label": "Multiply",
+                    "idx": 0,
+                    "pattern": "\\*"
+                  }
+                ]
+              },
+              {
+                "type": "Flat",
+                "definition": [
+                  {
+                    "type": "Terminal",
+                    "name": "Modulo",
+                    "label": "Modulo",
+                    "idx": 0,
+                    "pattern": "%"
+                  }
+                ]
+              },
+              {
+                "type": "Flat",
+                "definition": [
+                  {
+                    "type": "Terminal",
+                    "name": "Divide",
+                    "label": "Divide",
+                    "idx": 0,
+                    "pattern": "\\/"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "NonTerminal",
+            "name": "power",
+            "idx": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "Rule",
+    "name": "power",
+    "orgText": "() => {\n            $.SUBRULE($.value, { LABEL: \"lhs\" })\n            $.MANY(() => {\n                $.CONSUME(tokens.Power)\n                $.SUBRULE1($.value, { LABEL: \"rhs\" })\n            })\n        }",
+    "definition": [
+      {
+        "type": "NonTerminal",
+        "name": "value",
+        "idx": 0
+      },
+      {
+        "type": "Repetition",
+        "idx": 0,
+        "definition": [
+          {
+            "type": "Terminal",
+            "name": "Power",
+            "label": "Power",
+            "idx": 0,
+            "pattern": "\\*\\*"
+          },
+          {
+            "type": "NonTerminal",
+            "name": "value",
+            "idx": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "Rule",
+    "name": "flow",
+    "orgText": "() => {\n            $.SUBRULE($.arithmatic)\n            $.MANY(() => {\n                $.OPTION(() => {\n                    $.CONSUME(tokens.Indent)\n                })\n                $.OR([\n                    { ALT: () => { $.SUBRULE($.functionCall) } },\n                    { ALT: () => { $.SUBRULE($.functionMap) } },\n                    { ALT: () => { $.SUBRULE($.setValue) } },\n                ])\n                $.OPTION1(() => {\n                    $.CONSUME1(tokens.Outdent)\n                })\n            })\n        }",
+    "definition": [
+      {
+        "type": "NonTerminal",
+        "name": "arithmatic",
+        "idx": 0
+      },
+      {
+        "type": "Repetition",
+        "idx": 0,
+        "definition": [
+          {
+            "type": "Option",
+            "idx": 0,
+            "definition": [
+              {
+                "type": "Terminal",
+                "name": "Indent",
+                "label": "Indent",
+                "idx": 0
+              }
+            ]
+          },
+          {
+            "type": "Alternation",
+            "idx": 0,
+            "definition": [
+              {
+                "type": "Flat",
+                "definition": [
+                  {
+                    "type": "NonTerminal",
+                    "name": "functionCall",
+                    "idx": 0
+                  }
+                ]
+              },
+              {
+                "type": "Flat",
+                "definition": [
+                  {
+                    "type": "NonTerminal",
+                    "name": "functionMap",
+                    "idx": 0
+                  }
+                ]
+              },
+              {
+                "type": "Flat",
+                "definition": [
+                  {
+                    "type": "NonTerminal",
+                    "name": "setValue",
+                    "idx": 0
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "Option",
+            "idx": 1,
+            "definition": [
+              {
+                "type": "Terminal",
+                "name": "Outdent",
+                "label": "Outdent",
+                "idx": 1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "Rule",
+    "name": "functionCall",
+    "orgText": "() => {\n            $.CONSUME(tokens.Pipe)\n            $.OR([\n                { ALT: () => $.SUBRULE($.quickFunction) },\n                { ALT: () => {\n                    $.CONSUME(tokens.Symbol)\n                    $.MANY(() => {\n                        $.OR1([\n                            { ALT: () => { $.SUBRULE($.arithmatic) } },\n                            { ALT: () => { $.SUBRULE($.wrappedQuickFunction) } },\n                            { ALT: () => { $.SUBRULE($.transform) } },\n                            { ALT: () => { $.CONSUME(tokens.At) } },\n                        ])\n                    })\n                }},\n                { ALT: () => $.SUBRULE($.functionDefinition)},\n            ])\n        }",
+    "definition": [
+      {
+        "type": "Terminal",
+        "name": "Pipe",
+        "label": "Pipe",
+        "idx": 0,
+        "pattern": "->"
+      },
+      {
+        "type": "Alternation",
+        "idx": 0,
+        "definition": [
+          {
+            "type": "Flat",
+            "definition": [
+              {
+                "type": "NonTerminal",
+                "name": "quickFunction",
+                "idx": 0
+              }
+            ]
+          },
+          {
+            "type": "Flat",
+            "definition": [
+              {
+                "type": "Terminal",
+                "name": "Symbol",
+                "label": "Symbol",
+                "idx": 0,
+                "pattern": "[a-z$_][a-z_0-9$-]*"
+              },
+              {
+                "type": "Repetition",
+                "idx": 0,
+                "definition": [
+                  {
+                    "type": "Alternation",
+                    "idx": 1,
+                    "definition": [
+                      {
+                        "type": "Flat",
+                        "definition": [
+                          {
+                            "type": "NonTerminal",
+                            "name": "arithmatic",
+                            "idx": 0
+                          }
+                        ]
+                      },
+                      {
+                        "type": "Flat",
+                        "definition": [
+                          {
+                            "type": "NonTerminal",
+                            "name": "wrappedQuickFunction",
+                            "idx": 0
+                          }
+                        ]
+                      },
+                      {
+                        "type": "Flat",
+                        "definition": [
+                          {
+                            "type": "NonTerminal",
+                            "name": "transform",
+                            "idx": 0
+                          }
+                        ]
+                      },
+                      {
+                        "type": "Flat",
+                        "definition": [
+                          {
+                            "type": "Terminal",
+                            "name": "At",
+                            "label": "At",
+                            "idx": 0,
+                            "pattern": "@(\\d+)?"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "Flat",
+            "definition": [
+              {
+                "type": "NonTerminal",
+                "name": "functionDefinition",
+                "idx": 0
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "Rule",
+    "name": "functionMap",
+    "orgText": "() => {\n            $.CONSUME(tokens.Pipe)\n            $.CONSUME(tokens.Multiply)\n            $.OR([\n                { ALT: () => $.SUBRULE($.quickFunction) },\n                {\n                    ALT: () => {\n                        $.CONSUME(tokens.Symbol)\n                        $.MANY(() => {\n                            $.OR1([\n                                { ALT: () => { $.SUBRULE($.arithmatic) } },\n                                { ALT: () => { $.SUBRULE($.wrappedQuickFunction) } },\n                                { ALT: () => { $.SUBRULE($.transform) } },\n                                { ALT: () => { $.CONSUME(tokens.At) } },\n                            ])\n                        })\n                    }\n                },\n                { ALT: () => $.SUBRULE($.functionDefinition) },\n            ])\n        }",
+    "definition": [
+      {
+        "type": "Terminal",
+        "name": "Pipe",
+        "label": "Pipe",
+        "idx": 0,
+        "pattern": "->"
+      },
+      {
+        "type": "Terminal",
+        "name": "Multiply",
+        "label": "Multiply",
+        "idx": 0,
+        "pattern": "\\*"
+      },
+      {
+        "type": "Alternation",
+        "idx": 0,
+        "definition": [
+          {
+            "type": "Flat",
+            "definition": [
+              {
+                "type": "NonTerminal",
+                "name": "quickFunction",
+                "idx": 0
+              }
+            ]
+          },
+          {
+            "type": "Flat",
+            "definition": [
+              {
+                "type": "Terminal",
+                "name": "Symbol",
+                "label": "Symbol",
+                "idx": 0,
+                "pattern": "[a-z$_][a-z_0-9$-]*"
+              },
+              {
+                "type": "Repetition",
+                "idx": 0,
+                "definition": [
+                  {
+                    "type": "Alternation",
+                    "idx": 1,
+                    "definition": [
+                      {
+                        "type": "Flat",
+                        "definition": [
+                          {
+                            "type": "NonTerminal",
+                            "name": "arithmatic",
+                            "idx": 0
+                          }
+                        ]
+                      },
+                      {
+                        "type": "Flat",
+                        "definition": [
+                          {
+                            "type": "NonTerminal",
+                            "name": "wrappedQuickFunction",
+                            "idx": 0
+                          }
+                        ]
+                      },
+                      {
+                        "type": "Flat",
+                        "definition": [
+                          {
+                            "type": "NonTerminal",
+                            "name": "transform",
+                            "idx": 0
+                          }
+                        ]
+                      },
+                      {
+                        "type": "Flat",
+                        "definition": [
+                          {
+                            "type": "Terminal",
+                            "name": "At",
+                            "label": "At",
+                            "idx": 0,
+                            "pattern": "@(\\d+)?"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "Flat",
+            "definition": [
+              {
+                "type": "NonTerminal",
+                "name": "functionDefinition",
+                "idx": 0
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "Rule",
+    "name": "setValue",
+    "orgText": "() => {\n            $.CONSUME(tokens.EPipe)\n            $.CONSUME(tokens.Symbol)\n        }",
+    "definition": [
+      {
+        "type": "Terminal",
+        "name": "EPipe",
+        "label": "EPipe",
+        "idx": 0,
+        "pattern": "=>"
+      },
+      {
+        "type": "Terminal",
+        "name": "Symbol",
+        "label": "Symbol",
+        "idx": 0,
+        "pattern": "[a-z$_][a-z_0-9$-]*"
+      }
+    ]
+  },
+  {
+    "type": "Rule",
+    "name": "block",
+    "orgText": "() => {\n            $.CONSUME(tokens.Indent)\n            $.MANY(() => {\n                $.SUBRULE($.statement)\n            })\n            $.CONSUME(tokens.Outdent)\n        }",
+    "definition": [
+      {
+        "type": "Terminal",
+        "name": "Indent",
+        "label": "Indent",
+        "idx": 0
+      },
+      {
+        "type": "Repetition",
+        "idx": 0,
+        "definition": [
+          {
+            "type": "NonTerminal",
+            "name": "statement",
+            "idx": 0
+          }
+        ]
+      },
+      {
+        "type": "Terminal",
+        "name": "Outdent",
+        "label": "Outdent",
+        "idx": 0
+      }
+    ]
+  },
+  {
+    "type": "Rule",
+    "name": "conditional",
+    "orgText": "() => {\n            $.SUBRULE($.ifStatement)\n            $.MANY(() => {\n                $.SUBRULE($.elifStatement)\n            })\n            $.OPTION(() => {\n                $.SUBRULE($.elseStatement)\n            })\n        }",
+    "definition": [
+      {
+        "type": "NonTerminal",
+        "name": "ifStatement",
+        "idx": 0
+      },
+      {
+        "type": "Repetition",
+        "idx": 0,
+        "definition": [
+          {
+            "type": "NonTerminal",
+            "name": "elifStatement",
+            "idx": 0
+          }
+        ]
+      },
+      {
+        "type": "Option",
+        "idx": 0,
+        "definition": [
+          {
+            "type": "NonTerminal",
+            "name": "elseStatement",
+            "idx": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "Rule",
+    "name": "ifStatement",
+    "orgText": "() => {\n            $.CONSUME(tokens.If)\n            $.SUBRULE($.statement)\n            $.CONSUME(tokens.Colon)\n            $.SUBRULE($.block)\n        }",
+    "definition": [
+      {
+        "type": "Terminal",
+        "name": "If",
+        "label": "If",
+        "idx": 0,
+        "pattern": "if"
+      },
+      {
+        "type": "NonTerminal",
+        "name": "statement",
+        "idx": 0
+      },
+      {
+        "type": "Terminal",
+        "name": "Colon",
+        "label": "Colon",
+        "idx": 0,
+        "pattern": ":"
+      },
+      {
+        "type": "NonTerminal",
+        "name": "block",
+        "idx": 0
+      }
+    ]
+  },
+  {
+    "type": "Rule",
+    "name": "elifStatement",
+    "orgText": "() => {\n            $.CONSUME(tokens.Elif)\n            $.SUBRULE($.statement)\n            $.CONSUME(tokens.Colon)\n            $.SUBRULE($.block)\n        }",
+    "definition": [
+      {
+        "type": "Terminal",
+        "name": "Elif",
+        "label": "Elif",
+        "idx": 0,
+        "pattern": "elif"
+      },
+      {
+        "type": "NonTerminal",
+        "name": "statement",
+        "idx": 0
+      },
+      {
+        "type": "Terminal",
+        "name": "Colon",
+        "label": "Colon",
+        "idx": 0,
+        "pattern": ":"
+      },
+      {
+        "type": "NonTerminal",
+        "name": "block",
+        "idx": 0
+      }
+    ]
+  },
+  {
+    "type": "Rule",
+    "name": "elseStatement",
+    "orgText": "() => {\n            $.CONSUME(tokens.Elif)\n            $.SUBRULE($.statement)\n            $.CONSUME(tokens.Colon)\n            $.SUBRULE($.block)\n        }",
+    "definition": [
+      {
+        "type": "Terminal",
+        "name": "Elif",
+        "label": "Elif",
+        "idx": 0,
+        "pattern": "elif"
+      },
+      {
+        "type": "NonTerminal",
+        "name": "statement",
+        "idx": 0
+      },
+      {
+        "type": "Terminal",
+        "name": "Colon",
+        "label": "Colon",
+        "idx": 0,
+        "pattern": ":"
+      },
+      {
+        "type": "NonTerminal",
+        "name": "block",
+        "idx": 0
+      }
+    ]
+  },
+  {
+    "type": "Rule",
+    "name": "functionDefinition",
+    "orgText": "() => {\n            $.CONSUME(tokens.Fn)\n            $.CONSUME(tokens.Symbol)\n            $.AT_LEAST_ONE(() => {\n                $.CONSUME1(tokens.Symbol)\n            })\n            $.CONSUME(tokens.Colon)\n            $.SUBRULE($.block)\n        }",
+    "definition": [
+      {
+        "type": "Terminal",
+        "name": "Fn",
+        "label": "Fn",
+        "idx": 0,
+        "pattern": "fn"
+      },
+      {
+        "type": "Terminal",
+        "name": "Symbol",
+        "label": "Symbol",
+        "idx": 0,
+        "pattern": "[a-z$_][a-z_0-9$-]*"
+      },
+      {
+        "type": "RepetitionMandatory",
+        "idx": 0,
+        "definition": [
+          {
+            "type": "Terminal",
+            "name": "Symbol",
+            "label": "Symbol",
+            "idx": 1,
+            "pattern": "[a-z$_][a-z_0-9$-]*"
+          }
+        ]
+      },
+      {
+        "type": "Terminal",
+        "name": "Colon",
+        "label": "Colon",
+        "idx": 0,
+        "pattern": ":"
+      },
+      {
+        "type": "NonTerminal",
+        "name": "block",
+        "idx": 0
+      }
+    ]
+  },
+  {
+    "type": "Rule",
+    "name": "quickFunction",
+    "orgText": "() => {\n            $.CONSUME(tokens.Symbol)\n            $.CONSUME(tokens.Colon)\n            $.SUBRULE($.statement)\n        }",
+    "definition": [
+      {
+        "type": "Terminal",
+        "name": "Symbol",
+        "label": "Symbol",
+        "idx": 0,
+        "pattern": "[a-z$_][a-z_0-9$-]*"
+      },
+      {
+        "type": "Terminal",
+        "name": "Colon",
+        "label": "Colon",
+        "idx": 0,
+        "pattern": ":"
+      },
+      {
+        "type": "NonTerminal",
+        "name": "statement",
+        "idx": 0
+      }
+    ]
+  },
+  {
+    "type": "Rule",
+    "name": "wrappedQuickFunction",
+    "orgText": "() => {\n            $.CONSUME(tokens.LParen)\n            $.SUBRULE($.quickFunction)\n            $.CONSUME(tokens.RParen)\n        }",
+    "definition": [
+      {
+        "type": "Terminal",
+        "name": "LParen",
+        "label": "LParen",
+        "idx": 0,
+        "pattern": "\\("
+      },
+      {
+        "type": "NonTerminal",
+        "name": "quickFunction",
+        "idx": 0
+      },
+      {
+        "type": "Terminal",
+        "name": "RParen",
+        "label": "RParen",
+        "idx": 0,
+        "pattern": "\\)"
+      }
+    ]
+  },
+  {
+    "type": "Rule",
+    "name": "transform",
+    "orgText": "() => {\n            $.CONSUME(tokens.LParen)\n            $.CONSUME(tokens.At)\n            $.CONSUME(tokens.EPipe)\n            $.SUBRULE($.quickFunction)\n            $.CONSUME(tokens.RParen)\n        }",
+    "definition": [
+      {
+        "type": "Terminal",
+        "name": "LParen",
+        "label": "LParen",
+        "idx": 0,
+        "pattern": "\\("
+      },
+      {
+        "type": "Terminal",
+        "name": "At",
+        "label": "At",
+        "idx": 0,
+        "pattern": "@(\\d+)?"
+      },
+      {
+        "type": "Terminal",
+        "name": "EPipe",
+        "label": "EPipe",
+        "idx": 0,
+        "pattern": "=>"
+      },
+      {
+        "type": "NonTerminal",
+        "name": "quickFunction",
+        "idx": 0
+      },
+      {
+        "type": "Terminal",
+        "name": "RParen",
+        "label": "RParen",
+        "idx": 0,
+        "pattern": "\\)"
+      }
+    ]
+  },
+  {
+    "type": "Rule",
+    "name": "fullCompare",
+    "orgText": "() => {\n            $.SUBRULE($.statement)\n            $.SUBRULE($.halfCompare)\n        }",
+    "definition": [
+      {
+        "type": "NonTerminal",
+        "name": "statement",
+        "idx": 0
+      },
+      {
+        "type": "NonTerminal",
+        "name": "halfCompare",
+        "idx": 0
+      }
+    ]
+  },
+  {
+    "type": "Rule",
+    "name": "halfCompare",
+    "orgText": "() => {\n            $.CONSUME(tokens.Comparison)\n            $.SUBRULE($.statement)\n        }",
+    "definition": [
+      {
+        "type": "Terminal",
+        "name": "Comparison",
+        "label": "Comparison",
+        "idx": 0,
+        "pattern": "(!=|>=|<=|>|<|=)"
+      },
+      {
+        "type": "NonTerminal",
+        "name": "statement",
+        "idx": 0
+      }
+    ]
+  }
+];
+</script>
+
+<script>
+    var diagramsDiv = document.getElementById("diagrams");
+    main.drawDiagramsFromSerializedGrammar(serializedGrammar, diagramsDiv);
+</script>
